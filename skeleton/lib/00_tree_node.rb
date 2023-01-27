@@ -1,3 +1,5 @@
+require 'byebug'
+
 class PolyTreeNode
     attr_reader :parent, :children, :value
     
@@ -22,7 +24,10 @@ class PolyTreeNode
         child.parent=(nil) 
     end
 
+
+
     def bfs(node, target)
+        debugger
         arr = [node]
         
         until arr.empty?
@@ -32,8 +37,10 @@ class PolyTreeNode
             else
                 arr += arr.shift.children
             end
-            return nil
 
-
+        end
+        return nil
     end
+
+
 end
