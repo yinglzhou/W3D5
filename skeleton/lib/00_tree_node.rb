@@ -7,20 +7,18 @@ class PolyTreeNode
         @children = []
     end
 
-    def parent=(node)  
+    def parent=(new_parent)  
         @parent.children.delete(self) unless @parent.nil? 
-        @parent = node
-        node.children.push(self) unless @parent.nil?
+        @parent = new_parent
+        new_parent.children.push(self) unless @parent.nil?
     end
 
     def add_child(child)
-
-        @parent.children.push(child)
-
+        child.parent=(self)
     end
 
     def remove_child(child)
-        
-
+        raise "error" if child.parent == nil
+        child.parent=(nil) 
     end
 end
