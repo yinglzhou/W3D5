@@ -5,12 +5,11 @@ class PolyTreeNode
         @value = value
         @parent = nil
         @children = []
-
-
     end
 
     def parent=(node)
         @parent = node 
-        self.children << node unless @parent != nil
+
+        node.children << self unless parent.nil?
     end
 end
