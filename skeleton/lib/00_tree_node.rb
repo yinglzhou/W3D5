@@ -23,33 +23,16 @@ class PolyTreeNode
     end
 
     def bfs(node, target)
-        # queue = [node]
-
-        # if queue.shift == target
-        #     return queue.shift
-        # else
-        #     queue << queue.shift.children
-
-        # end
-        found? = false
-        queue = [node]
-
-        while(found? == false)
-
-      
-
-        queue[0].children.each do |child|
+        arr = [node]
         
-            if child != target
-                queue.shift!; queue.push(child)
-                found == false 
+        until arr.empty?
+
+            if arr.shift.value == target
+                return arr.shift.value
+            else
+                arr += arr.shift.children
             end
-
-
-        end
-        
-
-
+            return nil
 
 
     end
