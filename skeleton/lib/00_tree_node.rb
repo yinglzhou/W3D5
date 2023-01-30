@@ -26,9 +26,9 @@ class PolyTreeNode
 
 
 
-    def bfs(node, target)
+    def bfs(target)
         debugger
-        arr = [node]
+        arr = [self]
         
         until arr.empty?
 
