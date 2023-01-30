@@ -1,3 +1,5 @@
+require './skeleton/lib/00_tree_node.rb'
+
 class KnightPathFinder
     attr_reader :considered_positions
     def initialize(position)
@@ -34,25 +36,41 @@ class KnightPathFinder
     end
 
     def new_positions(position)
-
         final_arr = []
-
         new_moves = KnightPathFinder.valid_moves(position)
 
-        i = 0
-            while( i < new_moves.length)
-                if @considered_positions.include?(new_moves[i])
-                   next 
-                   i+=1
-                else
-                    @considered_positions.push(new_moves[i])
-                end
-                i+=1
+        new_moves.each do |position|
+            if !self.considered_positions.include?(position)
+                final_arr << position
             end
+        end
+        final_arr
+        # i = 0
+        #     while i < new_moves.length
+        #         if self.considered_positions.include?(new_moves[i])
+        #            next 
+        #            i += 1
+        #         else
+        #             self.considered_positions.push(new_moves[i])
+        #         end
+        #         i+=1
+        #     end
+        #     return final_arr
+    end
 
-            return final_arr
+    def build_move_tree(start_pos)
+        
+
+
+
+
+
 
     end
+
+
+
+
 
 
 
@@ -65,8 +83,6 @@ end
 p knight = KnightPathFinder.new([0,0])
 p KnightPathFinder.valid_moves([0,0])
 
-
-p knight.considered_positions
-
-
+p knight.new_positions([0,0])
+# p knight.considered_positions
 
